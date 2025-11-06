@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ulang Tahun Bubub 💙</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #b3e0ff, #ffffff);
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden; /* cegah seluruh body ikut geser */
+  }
+  .page {
+    display: none;
+    padding: 60px 20px;
+  }
+  .active {
+    display: block;
+  }
+  h1, h2, h3, p { color: #003366; }
+  h1 { font-size: 2rem; }
+  h2, h3 { font-size: 1.5rem; }
+  p { font-size: 1rem; line-height: 1.6; }
+  input {
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #007bff;
+    width: 60%;
+    max-width: 250px;
+    text-align: center;
+  }
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  button:hover { background-color: #0056b3; }
+  .hint {
+    color: #004080;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  /* animasi love & ikan */
+  .love, .fish {
+    position: absolute;
+    animation: float 8s infinite ease-in-out;
+    opacity: 0.7;
+    z-index: 0;
+  }
+  .love { color: pink; font-size: 20px; }
+  .fish { font-size: 22px; }
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  /* surat */
+  .letter {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+    max-height: 60vh; /* tinggi surat hanya 60% layar */
+    overflow-y: auto; /* aktifkan scroll vertikal */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
+    text-align: left;
+    animation: slideUp 0.6s ease-out;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* biar scroll halus di HP */
+  .letter::-webkit-scrollbar {
+    width: 5px;
+  }
+  .letter::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div id="page1" class="page active">
+  <h1>Bububbku 💙</h1>
+  <p>Masukkan password untuk melanjutkan:</p>
+  <input type="password" id="password" placeholder="Password angka..." />
+  <br><br>
+  <button onclick="checkPassword()">Masuk</button>
+  <p class="hint" onclick="showHint()">Lihat kata kunci</p>
+  <p id="hintText" style="display:none;">Tanggal ulang tahun bubub berapa?</p>
+</div>
+
+<!-- Page 2 -->
+<div id="page2" class="page">
+  <h2>aww awww selamat ulang tahunnn sayangkuuuuuu 💞</h2>
+  <button onclick="nextPage(3)">Lanjut 💌</button>
+</div>
+
+<!-- Page 3 -->
+<div id="page3" class="page">
+  <h3>🌸💞 Selamat Ulang Tahun untuk Bububku Tersayang 💞🌸</h3>
+  <button onclick="openLetter()">Buka Surat</button>
+  <div class="letter" id="letterContent">
+    <p>Selamat ulang tahun untuk seseorang yang paling berharga di hidupku — bububku tersayang 💞</p>
+    <p>Hari ini bukan hanya hari istimewa buatmu, tapi juga buatku. Karena di hari ini, Tuhan menghadirkan sosok yang begitu berarti, yang hadir membawa warna, tawa, dan rasa nyaman yang tak tergantikan.</p>
+    <p>Terima kasih sudah hadir dalam hidupku dengan segala kesabaran, perhatian, dan kasih sayangmu. Kamu bukan hanya seseorang yang kucintai, tapi juga tempatku pulang — tempat di mana aku bisa jadi diriku sendiri tanpa perlu berpura-pura. Bersamamu, semuanya terasa lebih ringan, lebih indah, dan lebih bermakna.</p>
+    <p>Aku selalu kagum pada caramu bertahan, berjuang, dan tetap tersenyum meski dunia kadang tak berpihak. Kamu punya hati yang kuat dan lembut di waktu yang sama — dan itu salah satu hal yang paling aku sayangi darimu.</p>
+    <p>Di hari ulang tahunmu ini, aku berdoa semoga semua yang kamu impikan bisa perlahan terwujud. Semoga langkahmu selalu dimudahkan, rezekimu diluaskan, dan hatimu selalu dipenuhi ketenangan serta kebahagiaan.</p>
+    <p>Dan semoga aku bisa terus jadi bagian dari setiap ceritamu — menemani, mendukung, dan mencintaimu tanpa henti.</p>
+    <p>Maaf ya bubub, kalau aku kadang masih kurang di matamu. Maaf juga kalau sikap dan tingkah lakuku kadang buat kamu sedih, aku nggak pernah bermaksud begitu. Aku cuma masih belajar jadi yang terbaik buatmu, buat kita. Aku cuma takut kehilangan seseorang sebaik kamu.</p>
+    <p>Selamat ulang tahun ya, bububku 🤍</p>
+    <p>Teruslah jadi versi terbaik dari dirimu sendiri, karena kamu sudah luar biasa apa adanya. Aku bersyukur setiap hari bisa mengenal dan mencintaimu.</p>
+    <p>Dengan segenap hati,<br><b>Anomalimuu 😚🤏</b></p>
+    <button onclick="nextPage(4)">Lanjut 💞</button>
+  </div>
+</div>
+
+<!-- Page 4 -->
+<div id="page4" class="page">
+  <h2>Semangat terus yah Bubb 💙<br>Jangan pernah menyerah 🐠</h2>
+</div>
+
+<script>
+  // Animasi ikan & love
+  const hearts = ["💖","💙","💞","💕"];
+  const fishes = ["🐟","🐠","🐡"];
+  for (let i = 0; i < 12; i++) {
+    let el = document.createElement('div');
+    el.className = i % 2 === 0 ? 'love' : 'fish';
+    el.textContent = i % 2 === 0 ? hearts[Math.floor(Math.random()*hearts.length)] : fishes[Math.floor(Math.random()*fishes.length)];
+    el.style.left = Math.random() * 100 + "%";
+    el.style.top = Math.random() * 100 + "%";
+    el.style.animationDelay = (Math.random() * 5) + "s";
+    document.body.appendChild(el);
+  }
+
+  function checkPassword() {
+    const pass = document.getElementById("password").value;
+    if (pass === "071105") {
+      nextPage(2);
+    } else {
+      alert("Password salah, coba lagi ya 💙");
+    }
+  }
+
+  function showHint() {
+    document.getElementById("hintText").style.display = "block";
+  }
+
+  function nextPage(pageNumber) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page' + pageNumber).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function openLetter() {
+    document.getElementById("letterContent").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
